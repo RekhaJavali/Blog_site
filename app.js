@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-
+let btnval = '';
 
 app.get("/", function(req, res){
   res.render("home", {homeContent :homeStartingContent});
@@ -25,15 +25,20 @@ app.get("/", function(req, res){
 app.get("/about" , function(req, res){
   res.render("about", {about_Content : aboutContent});
 });
+
 app.get("/contact" , function(req, res){
   res.render("contact", {contact_Content : contactContent});
 });
 
+app.get("/compose" , function(req, res){
+  res.render("compose");
 
 
+});
 
-
-
+// app.post("/compose", function(req,res){
+//   console.log(req.body.composetext);
+// })
 
 
 
