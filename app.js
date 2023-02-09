@@ -54,26 +54,29 @@ app.post("/compose", function(req,res){
   // console.log("post: "+post.content);
 })
 
-
+let storedbody = '';
 //routing paramaters
 app.get("/posts/:topic" , function(req, res){
-  const topictitle = _.lowerCase(req.params.topic);
+  const topictitle = _.lowerCase(req.params.topic); //entered in compose/posts/.....
   console.log(topictitle);
   // for (var i = 0; i<posts.length; i++){
     posts.forEach(function(post){
     // console.log(posts[i].title);
-    const storedPostTitle = _.lowerCase(post.title); 
+    const storedPostTitle = _.lowerCase(post.title);//stored in home after entered in compose page
+    storedbody = post.content;
     console.log(storedPostTitle);
     // if(posts[i].title == topictitle){
       if (storedPostTitle === topictitle){
       console.log("match found");
+      res.render("post" ,
+      { postTitle :post.title, postcontent : post.content });
     }
     else{
       console.log("not found");
     }
   
   });
-  // res.send();
+  
 });
 
 app.listen(3000, function() {
