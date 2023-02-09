@@ -53,6 +53,11 @@ app.post("/compose", function(req,res){
 })
 
 
+//routing paramaters
+app.get("/posts/:topic/name/:postname" , function(req, res){
+  console.log(req.params);
+  // res.send();
+});
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
