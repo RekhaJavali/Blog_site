@@ -1,2 +1,2 @@
-# ejs-blog-site
+# blog-site ejs
 Simple blog site using ejs
