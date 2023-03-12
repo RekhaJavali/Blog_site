@@ -9,6 +9,8 @@ const _ = require("lodash");
 mongoose.set('strictQuery', true);
 mongoose.connect("mongodb+srv://Rekha:Rekha13@cluster0.uihvcdf.mongodb.net/blogpostsDB");
 
+
+console.log(process.env.PORT);
 const blogSchema = new mongoose.Schema({
   title : String,
   content: String
