@@ -10,7 +10,8 @@ mongoose.set('strictQuery', true);
 mongoose.connect("mongodb+srv://Rekha:Rekha13@cluster0.uihvcdf.mongodb.net/blogpostsDB");
 
 
-console.log(process.env.PORT);
+// console.log(process.env.PORT);
+
 const blogSchema = new mongoose.Schema({
   title : String,
   content: String
@@ -121,13 +122,15 @@ app.get("/posts/:topicid" , function(req, res){
 });
 
 let port = process.env.PORT;
+
+console.log(port);
 if(port == null ||port == ""){
     port =3000;
 }
 
 
 app.listen(port, function(){
-        console.log("server running suucessfullly");
+        console.log(`server running suucessfullly ${port}` );
     });
 
     //local setup only
@@ -135,5 +138,5 @@ app.listen(port, function(){
 //   console.log("Server started on port 3000");
 // });
 
-// Export the Express API for vercel dpeoyment
+// Export the Express API for vercel deployment
 module.exports = app;
